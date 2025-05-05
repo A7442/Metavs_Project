@@ -14,6 +14,8 @@ public class BaseController : MonoBehaviour
     protected AnimationHandler animationHandler;
 
     protected bool isJumping = false;
+    [SerializeField] private float interactDistance = 0.5f;
+    [SerializeField] private LayerMask interactLayer;
 
     protected virtual void Awake()
     {
@@ -29,6 +31,7 @@ public class BaseController : MonoBehaviour
     protected virtual void Update()
     {   
         Rotate(movementDirection);
+        Interact();
     }
 
     protected virtual void FixedUpdate()
@@ -64,6 +67,16 @@ public class BaseController : MonoBehaviour
             bool isLeft = Mathf.Abs(rotZ) > 90.0f;
 
             chracterRenderer.flipX = isLeft;
+        }
+    }
+
+    private void Interact()
+    {
+        RaycastHit hit;
+        Vector3 direction = transform.up;
+        if (Physics.Raycast(transform.position, direction, out hit, interactDistance, interactLayer))
+        {
+            
         }
     }
 }

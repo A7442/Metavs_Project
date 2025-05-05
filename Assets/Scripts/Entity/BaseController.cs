@@ -13,6 +13,8 @@ public class BaseController : MonoBehaviour
 
     protected AnimationHandler animationHandler;
 
+    protected bool isJumping = false;
+
     protected virtual void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
@@ -31,18 +33,27 @@ public class BaseController : MonoBehaviour
 
     protected virtual void FixedUpdate()
     {
-       Movement(movementDirection);
-    }
-
-    protected virtual void HandleAction()
-    {
-
+        Movement(movementDirection);
+        Jump();
     }
 
     private void Movement(Vector2 direction)
     {
         _rigidbody.velocity = new Vector3(direction.x, direction.y, 0) * 5f;
         animationHandler.Move(direction);
+    }
+
+    private void Jump()
+    {
+        if (isJumping == true)
+        {
+            animationHandler.Jump();
+            isJumping = false;
+        }
+        else
+        {
+            return;
+        }
     }
 
     private void Rotate(Vector2 direction)

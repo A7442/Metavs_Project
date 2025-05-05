@@ -18,4 +18,17 @@ public class PlayerController : BaseController
         movementDirection = inputValue.Get<Vector2>();
         movementDirection = movementDirection.normalized;
     }
+
+    void OnJump()
+    {
+        isJumping = true;
+    }
+
+    void OnInteraction()
+    {
+        if (this.transform.position == Vector3.zero)
+        {
+            Debug.Log("Interaction with the object");
+        }
+    }
 }

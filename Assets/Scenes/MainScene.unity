@@ -133,7 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 37721035}
   - component: {fileID: 37721036}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -217,7 +217,7 @@ GameObject:
   m_Component:
   - component: {fileID: 45136558}
   - component: {fileID: 45136559}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: screen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -301,7 +301,7 @@ GameObject:
   m_Component:
   - component: {fileID: 84652524}
   - component: {fileID: 84652525}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: stickbutton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -385,7 +385,7 @@ GameObject:
   m_Component:
   - component: {fileID: 99058081}
   - component: {fileID: 99058082}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: button3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -469,7 +469,7 @@ GameObject:
   m_Component:
   - component: {fileID: 129121279}
   - component: {fileID: 129121280}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: button1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -553,7 +553,7 @@ GameObject:
   m_Component:
   - component: {fileID: 187179603}
   - component: {fileID: 187179604}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: button2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -637,7 +637,7 @@ GameObject:
   m_Component:
   - component: {fileID: 435010219}
   - component: {fileID: 435010220}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: button3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -724,6 +724,7 @@ GameObject:
   - component: {fileID: 451356820}
   - component: {fileID: 451356823}
   - component: {fileID: 451356824}
+  - component: {fileID: 451356825}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -862,6 +863,18 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &451356825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 451356819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f98394c8491564489cb6417d43e28b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &500380539
 GameObject:
   m_ObjectHideFlags: 0
@@ -872,7 +885,7 @@ GameObject:
   m_Component:
   - component: {fileID: 500380540}
   - component: {fileID: 500380541}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: joystick
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -955,7 +968,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 513407788}
-  m_Layer: 0
+  - component: {fileID: 513407789}
+  m_Layer: 6
   m_Name: GameMachine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -971,8 +985,8 @@ Transform:
   m_GameObject: {fileID: 513407787}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3, y: 9, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -3, y: 8.5, z: 0}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1666806372}
@@ -987,6 +1001,51 @@ Transform:
   - {fileID: 1190360662}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &513407789
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 513407787}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.3}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0.8}
+  m_EdgeRadius: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -998,6 +1057,7 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
+  - component: {fileID: 519420033}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1079,6 +1139,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &519420033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1f270ae848354744875609303a1880d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 451356822}
 --- !u!1 &655544183
 GameObject:
   m_ObjectHideFlags: 0
@@ -5945,7 +6018,7 @@ GameObject:
   m_Component:
   - component: {fileID: 724906435}
   - component: {fileID: 724906436}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: button4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6029,7 +6102,7 @@ GameObject:
   m_Component:
   - component: {fileID: 765732440}
   - component: {fileID: 765732441}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: joystick
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6113,7 +6186,7 @@ GameObject:
   m_Component:
   - component: {fileID: 768361602}
   - component: {fileID: 768361603}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: bottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6197,7 +6270,7 @@ GameObject:
   m_Component:
   - component: {fileID: 779584522}
   - component: {fileID: 779584523}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: joystick2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6281,7 +6354,7 @@ GameObject:
   m_Component:
   - component: {fileID: 996398817}
   - component: {fileID: 996398818}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: stickbutton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6365,7 +6438,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1001907651}
   - component: {fileID: 1001907652}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6449,7 +6522,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1190360662}
   - component: {fileID: 1190360663}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: joystick2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6580,7 +6653,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1425434807}
   - component: {fileID: 1425434808}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: button4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6664,7 +6737,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1484463768}
   - component: {fileID: 1484463769}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: button2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6747,7 +6820,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1531782395}
-  m_Layer: 0
+  - component: {fileID: 1531782396}
+  m_Layer: 6
   m_Name: GameMachine2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6763,8 +6837,8 @@ Transform:
   m_GameObject: {fileID: 1531782394}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3, y: 9, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 3, y: 8.5, z: 0}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 768361602}
@@ -6779,6 +6853,51 @@ Transform:
   - {fileID: 779584522}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1531782396
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1531782394}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.3}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0.8}
+  m_EdgeRadius: 0
 --- !u!1 &1547150856
 GameObject:
   m_ObjectHideFlags: 0
@@ -6789,7 +6908,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1547150857}
   - component: {fileID: 1547150858}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: button1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6873,7 +6992,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1666806372}
   - component: {fileID: 1666806373}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: bottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9041,7 +9160,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1900507915}
   - component: {fileID: 1900507916}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: screen
   m_TagString: Untagged
   m_Icon: {fileID: 0}

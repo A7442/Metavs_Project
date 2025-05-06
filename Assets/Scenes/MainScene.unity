@@ -1202,7 +1202,7 @@ GameObject:
   - component: {fileID: 513407788}
   - component: {fileID: 513407789}
   m_Layer: 6
-  m_Name: GameMachine
+  m_Name: GameMachine1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

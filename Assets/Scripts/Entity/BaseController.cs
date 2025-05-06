@@ -14,8 +14,12 @@ public class BaseController : MonoBehaviour
     protected AnimationHandler animationHandler;
 
     protected bool isJumping = false;
-    [SerializeField] private float interactDistance = 0.5f;
+    protected bool isInteracting = false;
+
+    [SerializeField] private float interactDistance = 1.0f;
     [SerializeField] private LayerMask interactLayer;
+
+    private Canvas canvas;
 
     protected virtual void Awake()
     {
@@ -72,11 +76,30 @@ public class BaseController : MonoBehaviour
 
     private void Interact()
     {
-        RaycastHit hit;
-        Vector3 direction = transform.up;
-        if (Physics.Raycast(transform.position, direction, out hit, interactDistance, interactLayer))
+        Vector2 direction = transform.up;
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, interactDistance, interactLayer);
+        if (hit.collider!= null)
         {
-            
+            Transform hittransform = hit.collider.transform;
+            canvas = hittransform.GetComponentInChildren<Canvas>(true);
+            if (canvas != null)
+            {
+                canvas.gameObject.SetActive(true);
+            }
+
+            if (isInteracting)
+            {
+                Debug.Log("øπ¿Ã~");
+                isInteracting = false;
+            }
+        }
+        else
+        {
+            if (canvas == null)
+            {
+                return;
+            }
+            canvas.gameObject.SetActive(false);
         }
     }
 }

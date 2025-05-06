@@ -43,6 +43,6 @@ public class PlayerController : BaseController
 
     void OnInteraction()
     {
-        
+        isInteracting = true;
     }
 }

@@ -37,42 +37,57 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(isDead)
+        if (gameManager.isGameStart)
         {
-            if (deathCooldown <= 0)
+            if (isDead)
             {
-                if (Input.GetKeyDown(KeyCode.R) || Input.GetMouseButtonDown(0))
+                if (deathCooldown <= 0)
                 {
-                    gameManager.RestartGame();
+                    if (Input.GetKeyDown(KeyCode.R) || Input.GetMouseButtonDown(0))
+                    {
+                        gameManager.RestartGame();
+                    }
+                }
+                else
+                {
+                    deathCooldown -= Time.deltaTime;
                 }
             }
             else
             {
-                deathCooldown -= Time.deltaTime;
+                if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))//0번은 좌클릭, 1번은 우클릭, 2번은 휠클릭,3,4번은 뒤로가기 앞으로가기
+                {
+                    isFlap = true;
+                }
             }
         }
         else
         {
-            if (Input.GetKeyDown(KeyCode.Space)||Input.GetMouseButtonDown(0))//0번은 좌클릭, 1번은 우클릭, 2번은 휠클릭,3,4번은 뒤로가기 앞으로가기
-            {
-                   isFlap = true;
-            }
+            transform.position = Vector3.zero;
+            _rigidbody.velocity = Vector3.zero;
         }
     }
     private void FixedUpdate()
     {
-        if (isDead) return;
-
-        Vector3 velocity = _rigidbody.velocity;
-        velocity.x = forwardSpeed;
-        if (isFlap)
+        if (gameManager.isGameStart)
         {
-            velocity.y += flapForce;
-            isFlap = false;
+            if (isDead) return;
+
+            Vector3 velocity = _rigidbody.velocity;
+            velocity.x = forwardSpeed;
+            if (isFlap)
+            {
+                velocity.y += flapForce;
+                isFlap = false;
+            }
+            _rigidbody.velocity = velocity;
+            float angle = Mathf.Clamp((_rigidbody.velocity.y * 10), -90, 90);
+            transform.rotation = Quaternion.Euler(0, 0, angle);
         }
-        _rigidbody.velocity = velocity;
-        float angle = Mathf.Clamp((_rigidbody.velocity.y * 10), -90, 90);
-        transform.rotation = Quaternion.Euler(0, 0, angle);
+        else
+        {
+            _rigidbody.velocity = Vector3.zero;
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

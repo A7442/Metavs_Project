@@ -2536,7 +2536,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 854997161}
-  highScoreText: {fileID: 0}
+  ScoreText1: {fileID: 349562509}
+  ScoreText2: {fileID: 1005529791}
+  ScoreText3: {fileID: 2083319628}
+  ScoreText4: {fileID: 1705123724}
+  ScoreText5: {fileID: 1950609065}
   finalText: {fileID: 1056117434}
   rankCanvas: {fileID: 50388988}
   gameReadyCanvas: {fileID: 1681539267}

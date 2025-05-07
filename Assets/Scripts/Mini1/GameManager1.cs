@@ -35,7 +35,7 @@ public class GameManager1 : MonoBehaviour
 
     public void GameOver()
     {
-        uiManager.ShowGameOverCanvas();
+        uiManager.ShowGameOverCanvas(currentScore);
         //playerprefabµÓ¿Â
     }
 

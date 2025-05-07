@@ -24,7 +24,7 @@ public class UIManager : MonoBehaviour
         gameOverCanvas.gameObject.SetActive(false);
         for(int i = 0; i < scoreLank.Length; i++)
         {
-            string key = $"HighScore{i + 1}";
+            string key = $"Game1HighScore{i + 1}";
 
             // 키가 없으면 0으로 초기화
             if (PlayerPrefs.HasKey(key))
@@ -85,7 +85,7 @@ public class UIManager : MonoBehaviour
         for(int i = 0; i < scoreLank.Length; i++)
         {
             scoreLank[i] = newScores[i];
-            string key = $"HighScore{i + 1}";
+            string key = $"Game1HighScore{i + 1}";
             PlayerPrefs.SetInt(key, scoreLank[i]);
         }
         PlayerPrefs.Save();

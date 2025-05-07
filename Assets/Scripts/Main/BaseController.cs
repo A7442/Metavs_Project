@@ -24,10 +24,13 @@ public class BaseController : MonoBehaviour
 
     private Canvas canvas;
 
+    UIManagerMain _uiManagerMain;
+    public UIManagerMain UIManagerMain { get { return _uiManagerMain; } }
     protected virtual void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         animationHandler = GetComponent<AnimationHandler>();
+        _uiManagerMain = FindAnyObjectByType<UIManagerMain>();
     }
 
     protected virtual void Start()
@@ -91,27 +94,38 @@ public class BaseController : MonoBehaviour
         //지금은 구현 못했지만 나중에 layer에 따라 다르게 처리할 수 있도록 만들려고 했다.
         if (hit.collider!= null)
         {
+            string layerName = LayerMask.LayerToName(hit.collider.gameObject.layer);
             Transform hittransform = hit.collider.transform;
             canvas = hittransform.GetComponentInChildren<Canvas>(true);
             if (canvas != null)
             {
                 canvas.gameObject.SetActive(true);
             }
-
-            if (isInteracting)
+            string hitcollider = hit.collider.gameObject.name;
+            string numberStr = new string(hitcollider.Where(char.IsDigit).ToArray());
+            int number = int.Parse(numberStr);
+            if (layerName == "Game")
             {
-                string hitcollider = hit.collider.gameObject.name;
-                string numberStr = new string(hitcollider.Where(char.IsDigit).ToArray());
-                int number = int.Parse(numberStr);
-                if (number == 1)//예외 처리 못해서 만든 if문
+                if (isInteracting)
                 {
-                    PlayerPosition.playerposition = transform.position;
-                    SceneManager.LoadScene($"MiniGameScene{numberStr}");
-                    isInteracting = false;
+                    if (number == 1)//예외 처리 못해서 만든 if문
+                    {
+                        PlayerPosition.playerposition = transform.position;
+                        SceneManager.LoadScene($"MiniGameScene{numberStr}");
+                        isInteracting = false;
+                    }
+                    else
+                    {
+                        Debug.Log("죄송합니다 아직 예외처리를 못햇어요 ㅠㅠ");
+                        isInteracting = false;
+                    }
                 }
-                else
+            }
+            else if (layerName == "Board")
+            {
+                if (isInteracting)
                 {
-                    Debug.Log("죄송합니다 아직 예외처리를 못햇어요 ㅠㅠ"); 
+                    _uiManagerMain.SetBoard(number);
                     isInteracting = false;
                 }
             }

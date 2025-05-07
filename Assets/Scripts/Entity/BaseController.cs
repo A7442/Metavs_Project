@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using System.Linq;
+using UnityEngine.Windows;
 
 public class BaseController : MonoBehaviour
 {
@@ -29,7 +32,14 @@ public class BaseController : MonoBehaviour
 
     protected virtual void Start()
     {
-        
+        if(PlayerPosition.playerposition !=null)
+        {
+            transform.position = PlayerPosition.playerposition;
+        }
+        else
+        {
+            transform.position = new Vector2(0, 0);
+        }
     }
 
     protected virtual void Update()
@@ -78,6 +88,7 @@ public class BaseController : MonoBehaviour
     {
         Vector2 direction = transform.up;
         RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, interactDistance, interactLayer);
+        //지금은 구현 못했지만 나중에 layer에 따라 다르게 처리할 수 있도록 만들려고 했다.
         if (hit.collider!= null)
         {
             Transform hittransform = hit.collider.transform;
@@ -89,8 +100,20 @@ public class BaseController : MonoBehaviour
 
             if (isInteracting)
             {
-                Debug.Log("예이~");
-                isInteracting = false;
+                string hitcollider = hit.collider.gameObject.name;
+                string numberStr = new string(hitcollider.Where(char.IsDigit).ToArray());
+                int number = int.Parse(numberStr);
+                if (number == 1)//예외 처리 못해서 만든 if문
+                {
+                    PlayerPosition.playerposition = transform.position;
+                    SceneManager.LoadScene($"MiniGameScene{numberStr}");
+                    isInteracting = false;
+                }
+                else
+                {
+                    Debug.Log("죄송합니다 아직 예외처리를 못햇어요 ㅠㅠ"); 
+                    isInteracting = false;
+                }
             }
         }
         else

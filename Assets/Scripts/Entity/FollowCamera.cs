@@ -23,8 +23,16 @@ public class FollowCamera : MonoBehaviour
         {
             return;
         }
-        offset = transform.position - target.position;
-
+        if (PlayerPosition.saveoffset == null)
+        {
+            offset = transform.position - target.position;
+            PlayerPosition.saveoffset = offset;
+        }
+        else
+        {
+            offset = PlayerPosition.saveoffset;
+            transform.position = new Vector3(target.position.x, target.position.y, -10.0f) + offset;
+        }
         Bounds bounds = tilemap.localBounds;
         minBound = new Vector2(bounds.min.x + 10.9f, bounds.min.y + 5.8f);
         maxBound = new Vector2(bounds.max.x - 9.9f, bounds.max.y - 5.8f);

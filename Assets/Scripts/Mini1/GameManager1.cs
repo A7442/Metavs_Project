@@ -49,4 +49,9 @@ public class GameManager1 : MonoBehaviour
         currentScore += score;
         uiManager.UpdateScore(currentScore);
     }
+
+    public void ReturnMainScene()
+    {
+        SceneManager.LoadScene("MainScene");
+    }
 }
